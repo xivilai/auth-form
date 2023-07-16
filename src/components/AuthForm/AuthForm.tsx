@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./style.scss";
+import styles from "./AuthForm.module.scss";
 import logo from "@/assets/images/Evil-Martians-Logo.png";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
 import { useAuthForm } from "../../utils/auth";
@@ -20,25 +20,25 @@ function AuthForm() {
   );
 
   return (
-    <div className="container">
-      <div className="window">
-        <div className="content">
-          <img src={logo} className="logo" alt="evil martians logo" />
+    <div className={styles.container}>
+      <div className={styles.window}>
+        <div className={styles.content}>
+          <img src={logo} className={styles.logo} alt="evil martians logo" />
 
-          <div className="form-text">
-            <h1 className="title">{titleText}</h1>
-            <p className="subtitle">{subtitleText}</p>
+          <div className={styles["form-text"]}>
+            <h1 className={styles.title}>{titleText}</h1>
+            <p className={styles.subtitle}>{subtitleText}</p>
           </div>
 
           {!isSuccess && (
             <form id="auth-form" action="/auth" onSubmit={onSubmit}>
-              <div className="input-fields">
+              <div className={styles["input-fields"]}>
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   autoComplete="email"
-                  className="input-line"
+                  className={styles["input-line"]}
                   required
                 />
                 <input
@@ -46,10 +46,10 @@ function AuthForm() {
                   name="password"
                   autoComplete="off"
                   placeholder="Password"
-                  className="input-line"
+                  className={styles["input-line"]}
                   required
                 />
-                <label className="terms-and-conditions">
+                <label className={styles["terms-and-conditions"]}>
                   <input type="checkbox" name="terms" id="terms" required />
                   <span>
                     I accept <a href="/terms">Terms &amp; Conditions</a>
@@ -61,12 +61,12 @@ function AuthForm() {
                 type="submit"
                 disabled={isLoading}
                 form="auth-form"
-                className="ghost-round"
+                className={styles["ghost-round"]}
               >
                 {isLoading ? "Loading..." : "Create Account"}
               </button>
 
-              <a href="/signIn" className="login">
+              <a href="/signIn" className={styles.login}>
                 Login
               </a>
             </form>

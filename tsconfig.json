@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "ES2022",
+    "moduleResolution": "NodeNext",
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "paths": {
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/assets/*": [
+        "assets/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,166 @@
+@use "sass:color";
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+
+body,
+html {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  font-family: "roboto";
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+::-webkit-input-placeholder .input-line:focus + ::input-placeholder {
+  color: #fff;
+}
+
+button[type="submit"] {
+  width: 100%;
+  background: #444169;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.4s ease;
+
+  &:hover {
+    background: color.scale(#444169, $lightness: 15%);
+    color: #85dbac;
+  }
+
+  &:focus {
+    border: 1px solid cyan;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #27274b;
+  height: 100vh;
+}
+
+.window {
+  z-index: 100;
+  background: #42426d45;
+  border: 1px solid hsla(0, 0%, 65%, 0.158);
+  border-radius: 3px;
+  color: #fff;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+  height: 560px;
+  width: 360px;
+}
+
+form {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+
+  .input-fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    input {
+      padding-left: 1em;
+      padding-right: 1em;
+      height: 40px;
+      color: #fff;
+      width: 100%;
+      font-weight: 300;
+      letter-spacing: 0.02rem;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      background-color: rgb(0 0 0 / 30%);
+      border: none;
+      outline: none;
+      border-radius: 2px;
+      backdrop-filter: blur(15px);
+
+      &:focus {
+        box-shadow: 0 0 4px 0rem #abe9c7;
+      }
+    }
+  }
+}
+
+.form-text {
+  margin-bottom: 25px;
+}
+
+.content {
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  flex-flow: column;
+  z-index: 5;
+}
+
+.logo {
+  width: 100px;
+  margin: 0 auto;
+}
+
+.title {
+  font-weight: 400;
+  margin-top: 15px;
+  margin-bottom: 0.2em;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 0px;
+  letter-spacing: 0.05rem;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: 300;
+}
+
+.terms-and-conditions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  &:hover {
+    background: oklch(0 0 0 / 10%);
+  }
+}
+
+.overlay {
+  background: linear-gradient(#034993, #ffffff);
+  opacity: 0.85;
+  filter: alpha(opacity=85);
+  height: 560px;
+  position: absolute;
+  width: 360px;
+  z-index: 1;
+}

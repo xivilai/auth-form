@@ -1,50 +1,15 @@
 import React from "react";
-import { useMutation } from "react-query";
 
 import "./style.scss";
 import logo from "@/assets/images/Evil-Martians-Logo.png";
 import { ErrorMessage } from "../ErrorMessage/ErrorMessage";
-
-interface FormData {
-  email: string;
-  password: string;
-}
+import { useAuthForm } from "../../utils/auth";
 
 function AuthForm() {
-  const createAccountMutation = async (formData: FormData) => {
-    const response = await fetch("/auth", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const { authData, onSubmit, isError, error, isLoading, isSuccess } =
+    useAuthForm();
 
-    return response.json();
-  };
-
-  const {
-    mutate: mutateCreateAccount,
-    data: createAccountResponse,
-    isLoading,
-    isError,
-    isSuccess,
-    error,
-  } = useMutation(createAccountMutation);
-
-  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
-    evt.preventDefault();
-
-    const form = evt.target as HTMLFormElement;
-    const email: string = form.email.value;
-    const password: string = form.password.value;
-
-    mutateCreateAccount({ email, password });
-  };
-
-  const titleText = isSuccess
-    ? createAccountResponse.data
-    : "Join Evil Martians!";
+  const titleText = isSuccess ? authData : "Join Evil Martians!";
   const subtitleText = isSuccess ? (
     <span>
       Check out our blog:{" "}
@@ -64,9 +29,9 @@ function AuthForm() {
             <h1 className="title">{titleText}</h1>
             <p className="subtitle">{subtitleText}</p>
           </div>
-          
+
           {!isSuccess && (
-            <form id="auth-form" action="/auth" onSubmit={handleSubmit}>
+            <form id="auth-form" action="/auth" onSubmit={onSubmit}>
               <div className="input-fields">
                 <input
                   type="email"

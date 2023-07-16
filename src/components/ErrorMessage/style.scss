@@ -1,0 +1,11 @@
+@use "@/assets/scss/colors";
+
+.error-message {
+  color: colors.$danger;
+
+  pre {
+    white-space: break-spaces;
+    margin: 0;
+    margin-bottom: -5;
+  }
+}

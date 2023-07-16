@@ -14,7 +14,7 @@ root.render(
 
 // Define a mock response object
 const mockResponse = {
-  data: "successfully created account",
+  data: "Welcome aboard martian!",
 };
 
 // Create a mock implementation of the fetch function
@@ -26,7 +26,7 @@ function fetchMock(url) {
         ok: true,
         json: () => Promise.resolve(mockResponse),
       });
-    }, 1000);
+    }, 2000);
   });
 }
 

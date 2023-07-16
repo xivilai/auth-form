@@ -72,6 +72,7 @@ form {
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  margin-bottom: 16px;
 
   .input-fields {
     width: 100%;
@@ -133,6 +134,9 @@ form {
 .subtitle {
   text-align: center;
   font-weight: 300;
+  a {
+    text-decoration: underline;
+  }
 }
 
 .terms-and-conditions {

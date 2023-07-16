@@ -5,10 +5,11 @@
   "license": "MIT",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-query": "^3.39.3"
   },
   "scripts": {
-    "dev": "vite",
+    "start": "vite --open",
     "build": "vite build",
     "preview": "vite preview"
   },
